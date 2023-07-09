@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800;900&display=swap");
+
+:root {
+  --primary-font-family: "Karla", sans-serif;
+  --secondary-font-family: "Inter", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f5f7fb;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.main--question--div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.question--div {
+  width: 307px;
+  height: 51.626px;
+  margin-bottom: 70px;
+}
+
+.question--text {
+  color: #293264;
+  font-family: var(--primary-font-family);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.all--question--display {
+  margin-top: 16px;
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #dbdef0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.answers--text {
+  width: 65.922px;
+  padding: 5px 5px 5px 5px;
+  border-radius: 7.942px;
+  border: 0.794px solid #4d5b9e;
+  color: #293264;
+  text-align: center;
+  font-family: var(--secondary-font-family);
+  font-size: 10.24px;
+  font-style: normal;
+  font-weight: 500;
+  cursor: pointer;
+}
+.picture--one {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.picture--two {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+img {
+  display: block;
+}
+.button-main-css {
+  margin-top: 27px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.check--button {
+  width: 120px;
+  height: 35px;
+  flex-shrink: 0;
+  background-color: #4d5b9e;
+  color: #f5f7fb;
+  text-align: center;
+  font-family: var(--secondary-font-family);
+  font-size: 10.24px;
+  font-style: normal;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+}
+
+.result--text {
+  color: #293264;
+  text-align: center;
+  font-family: var(--secondary-font-family);
+  font-size: 12.8px;
+  font-style: normal;
+  font-weight: 700;
+  margin-right: 20px;
+}
