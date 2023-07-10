@@ -1,7 +1,8 @@
+import { useEffect, useState } from "react";
+import { decode } from "html-entities";
 import EachQuestion from "./EachQuestion";
 import PicutreDisplayHtml from "./PicutreDisplayHtml";
 import "./Quession.css";
-import { useEffect, useState } from "react";
 
 const Quession = () => {
   const [allquestion, setquestion] = useState([]);
@@ -47,7 +48,7 @@ const Quession = () => {
         return {
           index: i + 1,
           in_click: false,
-          question: question,
+          question: decode(question, { level: "html5" }),
           correctAnswer: correct_answer,
           multipleanswers: allans([correct_answer, ...incorrect_answers]),
         };
@@ -65,6 +66,7 @@ const Quession = () => {
             key={index}
             question={question}
             handlerClick={Answerhandler}
+            btnchangevalue={btnClik}
           />
         );
       }
@@ -93,12 +95,15 @@ const Quession = () => {
   function handlerbtnChecker() {
     if (btnClik === true) {
       gettingdata().then((data) => setquestion(data));
-      setbtnvalue(false)
+      setbtnvalue(false);
     } else {
       setbtnvalue((prev) => !prev);
+      if (btnClik === false) {
+        // const v
+      }
     }
   }
-
+ 
   return allquestion.length === 0 ? (
     <h1>comming ...</h1>
   ) : (
