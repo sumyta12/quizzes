@@ -5,23 +5,27 @@ const EachQuestion = (props) => {
     correctAnswer,
     multipleanswers = [],
   } = props?.question || {};
-  // correctAnswer,
 
-  const stylevalue = !props.btnchangevalue ? ["#D6DBF5", ""] : ["#F8BCBC", "#94D7A2"];
+  const stylevalue = !props.btnchangevalue
+    ? ["#D6DBF5", ""]
+    : ["#F8BCBC", "#94D7A2"];
 
-  const multipleChoice = multipleanswers.map((choice) => (
-    <h1
-      key={choice.name}
-      className="answers--text"
-      style={
-        choice.click
-          ? { background: stylevalue[0] }
-          : { background: stylevalue[1] }
-      }
-      onClick={() => props.handlerClick(choice.name, index)}>
-      {choice.name}
-    </h1>
-  ));
+  const multipleChoice =
+    props.btnchangevalue === false &&
+    multipleanswers.map((choice) => (
+      <h1
+        key={choice.name}
+        className="answers--text"
+        style={
+          choice.click
+            ? { background: stylevalue[0] }
+            : { background: stylevalue[1] }
+        }
+        onClick={() => props.handlerClick(choice.name, index)}>
+        {choice.name}
+      </h1>
+    ));
+
   const options =
     props.btnchangevalue === true &&
     multipleanswers.map((choice) => {
@@ -34,12 +38,21 @@ const EachQuestion = (props) => {
             {choice.name}
           </h1>
         );
-      } else {
+      } else if (choice.click === true) {
         return (
           <h1
             key={choice.name}
             className="answers--text"
             style={{ background: stylevalue[0] }}>
+            {choice.name}
+          </h1>
+        );
+      } else {
+        return (
+          <h1
+            key={choice.name}
+            className="answers--text"
+            style={{ background: "" }}>
             {choice.name}
           </h1>
         );
