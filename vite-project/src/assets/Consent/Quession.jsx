@@ -37,14 +37,16 @@ const Quession = () => {
 
     return response?.results?.map(
       ({ question, correct_answer, incorrect_answers } = {}, i) => {
+        
         const allans = (data) => {
-          return data?.map((mul) => {
+          return data?.sort().map((mul) => {
             return {
               name: mul,
               click: false,
             };
           });
         };
+
         return {
           index: i + 1,
           in_click: false,
@@ -98,12 +100,9 @@ const Quession = () => {
       setbtnvalue(false);
     } else {
       setbtnvalue((prev) => !prev);
-      if (btnClik === false) {
-        // const v
-      }
     }
   }
- 
+
   return allquestion.length === 0 ? (
     <h1>comming ...</h1>
   ) : (
