@@ -37,7 +37,6 @@ const Quession = () => {
 
     return response?.results?.map(
       ({ question, correct_answer, incorrect_answers } = {}, i) => {
-        
         const allans = (data) => {
           return data?.sort().map((mul) => {
             return {
@@ -82,11 +81,8 @@ const Quession = () => {
               ...eachquesitem,
               multipleanswers: eachquesitem.multipleanswers.map((eachans) => {
                 return eachans.name === text
-                  ? {
-                      ...eachans,
-                      click: !eachans.click,
-                    }
-                  : eachans;
+                  ? { ...eachans, click: !eachans.click }
+                  : { ...eachans, click: false };
               }),
             }
           : eachquesitem;
